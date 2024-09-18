@@ -1,0 +1,85 @@
+<!-- 
+Урок 10. Семинар. Работа с JSON
+Задание 1
+1. Поиск в интернете (бесплатные api примеры).https://stephen-king-api.onrender.com/api/books - поменяла немного, чтобы условиям задачи подходил
+2. Найти любые данные, на произвольную тему.
+3. Создать файл data.js.
+4. Создать переменную которая будет хранить данные из публичных api.
+
+Задание 2
+1. Создать файл index.html.
+2. Подключить data.js.
+3. Сформировать контент из данных (картинка загловок и параграф).
+4. Добавить данный контент в вёрстку.
+5. * Добавить стили при необходимости (по желанию). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .content_div {
+            width: 250px;
+            border: 3px solid #ae3b3b;
+            padding: 16px;
+        }
+
+        .content_div h2{
+            color: #ae3b3b;
+            text-align: center;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="content"></div> //создаем начало(родительский класс)
+
+    <script src="data.js"></script>
+
+    <script>
+        //Поймаем элемент, в который будем размещать контент
+        const contentEl = document.querySelector('.content');
+
+        //Берем данные из js-файла
+        const booksData = JSON.parse(books);
+        
+        //Пройдем по всему массиву и создадим необходимые элементы
+        booksData.forEach(element => {
+            //создадим элементы заголовок - Title, картинка - Image, параграф - Notes
+            const divEl = document.createElement('div');
+            const h2El = document.createElement('h2');
+            const imgEl = document.createElement('img');
+            const parEl = document.createElement('p');
+
+            //Добавляем классы элементам
+            divEl.classList.add('content_div');
+            h2El.classList.add('book_title');
+            imgEl.classList.add('book_img');
+            parEl.classList.add('book_describe');
+
+            //Добавляем наполнение элементов
+            h2El.textContent = element.Title;
+            imgEl.src = element.Image;
+            parEl.textContent = element.Notes;
+
+            //Создаем структуру
+            contentEl.appendChild(divEl);
+            divEl.appendChild(h2El);
+            divEl.appendChild(imgEl);
+            divEl.appendChild(parEl);
+
+            
+        });
+
+    </script>
+
+</body>
+</html>
