@@ -1,0 +1,68 @@
+<!-- Дан макет сайта https://www.figma.com/file/mnLY69cYE5cqWM5w6n5hXx/Seo-%26-Digital-Marketing-Landing-Page?node-id=190%3A1194&t=q4NMnXTnwyyTSGA6-0
+
+В блоке Featured Items небходимо реализовать шаблон товаров.
+
+Для этого необходимо создать json формат данных по всем товарам.
+
+Из этого файла сформировать блок Featured Items.
+
+Всю вёрстку остальных частей реализовывать не нужно, если у вас она была сделана на html/css можно использовать, заново создавать не требуется. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашнее задание Шаблонизация 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="fetured_items">
+        <h1 class="heading">Fetured Items</h1>
+        <p class="paragraph">Shop for items based on what we featured in this week</p>
+        <button class="button">Browse All Product</button>
+    </div>
+    <script src="json.js"></script>
+    <script>
+        const futEl = document.querySelector('.fetured_items');
+        const buttonEL = document.querySelector('.button');
+        const data = JSON.parse(dataProducts);
+        const cardListEl = document.createElement('div');
+        cardListEl.classList.add('cardList');
+        buttonEL.insertAdjacentElement("beforebegin",cardListEl);
+
+
+
+        data.forEach(element => {          
+
+            const cardEl = document.createElement('div');
+            cardEl.classList.add('cardList_card');
+          
+            const cardImg = document.createElement('img');
+            cardImg.src = element.url;
+           
+            const cardHeading = document.createElement('h3');
+            cardHeading.classList.add('cardList_card_heading');
+            cardHeading.textContent = element.name;
+
+            const cardDes = document.createElement('p');
+            cardDes.classList.add('cardList_card_description');
+            cardDes.textContent = `${element.description}`;
+
+            const cardPrice = document.createElement('p');
+            cardPrice.classList.add('cardList_card_price');
+            cardPrice.textContent = `${element.price}`;
+
+            cardListEl.appendChild(cardEl);
+            cardEl.appendChild(cardImg);
+            cardEl.appendChild(cardHeading);
+            cardEl.appendChild(cardDes);
+            cardEl.appendChild(cardPrice);                   
+        }); 
+    </script>   
+</body>
+</html>

@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.fetured_items {
+    width: 1140px;
+    height: 1395px;
+    margin-top: 1470px;
+    margin-left: 230px;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+    color: #222222;
+}
+
+.paragraph {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: center;
+    color: rgba(159, 159, 159, 1);
+}
+
+.button {
+    width: 212px;
+    height: 48px;
+    justify-content: center;
+    background-color: rgba(241, 109, 127, 1);
+    border: 1px solid rgba(255, 106, 106, 1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    margin-left: 695px;
+}
+
+.cardList {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+
+}
+
+.cardList_card{
+    background: rgb(248, 248, 248);  
+}
+
+.cardList_card img {
+    background-color: rgb(247, 228, 226);
+}
+
+.cardList_card_heading {
+    padding: 0px 16px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    color: rgb(0, 0, 0);
+    font-family: Lato;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: left;
+}
+
+.cardList_card_description {
+    margin-bottom: 16px;
+    color: rgb(93, 93, 93);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 17px;
+    text-align: left;
+    padding: 0px 16px;
+}
+
+.cardList_card_price {
+    margin-bottom: 24px;
+    padding: 0px 16px;
+    color: rgb(241, 109, 127);
+    font-size: 16px;
+    line-height: 19px;
+    text-align: left;
+
+}
+
